@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Turismo en Valencia</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f7f8fa;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            box-shadow: 0 2px 8px #ddd;
+            padding: 32px 36px;
+            border-radius: 14px;
+        }
+        .lang-selector {
+            text-align: right;
+        }
+        .lang-btn {
+            background: #e0e1e6;
+            color: #222;
+            border: 0;
+            border-radius: 6px;
+            padding: 7px 16px;
+            margin-left: 12px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .lang-btn.selected {
+            background: #3E7C9E;
+            color: #fff;
+        }
+        h1, h2 {
+            color: #206080;
+        }
+        .content > div {
+            display: none;
+        }
+        .content > .active {
+            display: block;
+        }
+    </style>
+    <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.content > div').forEach(el => el.classList.remove('active'));
+            document.querySelector('.content .' + lang).classList.add('active');
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById('btn-' + lang).classList.add('selected');
+            document.documentElement.lang = (lang === 'es' ? 'es' : 'ca');
+        }
+        window.onload = function() {
+            switchLang('es'); // Español por defecto
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="lang-selector">
+        <button id="btn-es" class="lang-btn" onclick="switchLang('es')">Español</button>
+        <button id="btn-ca" class="lang-btn" onclick="switchLang('ca')">Valencià</button>
+    </div>
+    <div class="content">
+        <div class="es active">
+            <h1>Descubre Valencia</h1>
+            <h2>Turismo cultural y gastronómico</h2>
+            <p>
+                Valencia te ofrece historia, playa, gastronomía y cultura en un entorno mediterráneo único.
+            </p>
+            <h2>Lugares imprescindibles</h2>
+            <ul>
+                <li>Ciudad de las Artes y las Ciencias</li>
+                <li>Catedral y El Miguelete</li>
+                <li>La Albufera y sus atardeceres</li>
+                <li>Playa de la Malvarrosa</li>
+                <li>Mercado Central</li>
+            </ul>
+            <h2>Gastronomía local</h2>
+            <p>
+                Prueba la auténtica paella valenciana, la horchata con fartons y, para los más golosos, la fideuà. 
+            </p>
+            <h2>Fiestas y tradiciones</h2>
+            <ul>
+                <li>Las Fallas (marzo)</li>
+                <li>Semana Santa Marinera</li>
+                <li>La Tomatina (Buñol, agosto)</li>
+            </ul>
+        </div>
+        <div class="ca">
+            <h1>Descobreix València</h1>
+            <h2>Turisme cultural i gastronòmic</h2>
+            <p>
+                València t’ofereix història, platja, gastronomia i cultura en un entorn mediterrani únic.
+            </p>
+            <h2>Llocs imprescindibles</h2>
+            <ul>
+                <li>Ciutat de les Arts i les Ciències</li>
+                <li>Catedral i El Micalet</li>
+                <li>L'Albufera i els seus capvespres</li>
+                <li>Platja de la Malva-rosa</li>
+                <li>Mercat Central</li>
+            </ul>
+            <h2>Gastronomia local</h2>
+            <p>
+                Prova l’autèntica paella valenciana, l’orxata amb fartons i, per als més llaminers, la fideuà. 
+            </p>
+            <h2>Festes i tradicions</h2>
+            <ul>
+                <li>Les Falles (març)</li>
+                <li>Setmana Santa Marinera</li>
+                <li>La Tomatina (Bunyol, agost)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>
