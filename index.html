@@ -61,6 +61,65 @@
     </script>
 </head>
 <body>
+<header>
+  <nav class="main-menu">
+    <ul>
+      <li><a href="#sitios-interes">Sitios de interés</a></li>
+      <li><a href="#playas">Playas</a></li>
+      <li><a href="#gastronomia">Gastronomía</a></li>
+      <li><a href="#fiestas">Fiestas</a></li>
+      <li><a href="#monumentos">Monumentos</a></li>
+      <li><a href="#musica-ocio">Música y Ocio</a></li>
+      <li><a href="https://www.comunitatvalenciana.com/es/sector-terciario/turismo" target="_blank" rel="noopener">Generalitat Valenciana</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #3E7C9E;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 1000;
+  }
+  .main-menu ul {
+    margin: 0;
+    padding: 0 20px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  .main-menu li {
+    margin: 0 15px;
+  }
+  .main-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 15px 0;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .main-menu a:hover,
+  .main-menu a:focus {
+    text-decoration: underline;
+  }
+  body {
+    padding-top: 56px;
+  }
+  @media (max-width: 600px) {
+    .main-menu ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    .main-menu li {
+      margin: 10px 0;
+    }
+  }
+</style>
+
 <div class="container">
     <div class="lang-selector">
         <button id="btn-es" class="lang-btn" onclick="switchLang('es')">Castellano</button>
