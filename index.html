@@ -61,9 +61,9 @@
     </script>
 </head>
 <body>
-<header>
+    <header>
   <nav class="main-menu">
-    <ul>
+    <ul class="menu-items">
       <li><a href="#sitios-interes">Sitios de interés</a></li>
       <li><a href="#playas">Playas</a></li>
       <li><a href="#gastronomia">Gastronomía</a></li>
@@ -72,6 +72,10 @@
       <li><a href="#musica-ocio">Música y Ocio</a></li>
       <li><a href="https://www.comunitatvalenciana.com/es/sector-terciario/turismo" target="_blank" rel="noopener">Generalitat Valenciana</a></li>
     </ul>
+    <div class="lang-selector-menu">
+      <button id="btn-es" class="lang-btn" onclick="switchLang('es')">Español</button>
+      <button id="btn-ca" class="lang-btn" onclick="switchLang('ca')">Valencià</button>
+    </div>
   </nav>
 </header>
 
@@ -84,17 +88,22 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     z-index: 1000;
   }
-  .main-menu ul {
-    margin: 0;
+  .main-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 0 20px;
+  }
+  .menu-items {
+    margin: 0;
+    padding: 0;
     list-style: none;
     display: flex;
-    justify-content: center;
   }
-  .main-menu li {
+  .menu-items li {
     margin: 0 15px;
   }
-  .main-menu a {
+  .menu-items a {
     color: white;
     text-decoration: none;
     font-weight: 600;
@@ -102,24 +111,54 @@
     display: inline-block;
     font-family: Arial, Helvetica, sans-serif;
   }
-  .main-menu a:hover,
-  .main-menu a:focus {
+  .menu-items a:hover,
+  .menu-items a:focus {
     text-decoration: underline;
+  }
+  .lang-selector-menu {
+    display: flex;
+  }
+  .lang-btn {
+    background: #e0e1e6;
+    color: #222;
+    border: 0;
+    border-radius: 6px;
+    padding: 7px 16px;
+    margin-left: 12px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .lang-btn.selected {
+    background: #1e4c66;
+    color: #fff;
   }
   body {
     padding-top: 56px;
   }
   @media (max-width: 600px) {
-    .main-menu ul {
+    .main-menu {
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
     }
-    .main-menu li {
-      margin: 10px 0;
+    .menu-items {
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .menu-items li {
+      margin: 5px 10px;
+    }
+    .lang-selector-menu {
+      justify-content: center;
+    }
+    .lang-btn {
+      margin-left: 8px;
+      padding: 6px 12px;
+      font-size: 0.9em;
     }
   }
 </style>
-
 <div class="container">
     <div class="lang-selector">
         <button id="btn-es" class="lang-btn" onclick="switchLang('es')">Castellano</button>
