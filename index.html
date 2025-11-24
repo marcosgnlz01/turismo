@@ -47,6 +47,18 @@
             display: block;
         }
     </style>
+     <script>
+        function switchLang(lang) {
+            document.querySelectorAll('.content > div').forEach(el => el.classList.remove('active'));
+            document.querySelector('.content .' + lang).classList.add('active');
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById('btn-' + lang).classList.add('selected');
+            document.documentElement.lang = (lang === 'es' ? 'es' : 'ca');
+        }
+        window.onload = function() {
+            switchLang('ca');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -102,24 +114,6 @@
   .menu-items a:hover,
   .menu-items a:focus {
     text-decoration: underline;
-  }
-  .lang-selector-menu {
-    display: flex;
-  }
-  .lang-btn {
-    background: #e0e1e6;
-    color: #222;
-    border: 0;
-    border-radius: 6px;
-    padding: 7px 16px;
-    margin-left: 12px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .lang-btn.selected {
-    background: #1e4c66;
-    color: #fff;
   }
   body {
     padding-top: 56px;
