@@ -47,18 +47,6 @@
             display: block;
         }
     </style>
-    <script>
-        function switchLang(lang) {
-            document.querySelectorAll('.content > div').forEach(el => el.classList.remove('active'));
-            document.querySelector('.content .' + lang).classList.add('active');
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('selected'));
-            document.getElementById('btn-' + lang).classList.add('selected');
-            document.documentElement.lang = (lang === 'es' ? 'es' : 'ca');
-        }
-        window.onload = function() {
-            switchLang('ca'); // Español por defecto
-        }
-    </script>
 </head>
 <body>
     <header>
