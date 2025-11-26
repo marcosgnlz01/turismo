@@ -47,6 +47,18 @@
             display: block;
         }
     </style>
+      <script>
+    function switchLang(lang) {
+        document.querySelectorAll('.content > div').forEach(el => el.classList.remove('active'));
+        document.querySelector('.content .' + lang).classList.add('active');
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('selected'));
+        document.getElementById('btn-' + lang).classList.add('selected');
+        document.documentElement.lang = (lang === 'es' ? 'es' : 'ca');
+    }
+    window.onload = function() {
+        switchLang('ca');
+    };
+  </script>
 </head>
 <body>
     <header>
@@ -146,20 +158,6 @@
     }
   }
 </style>
-        function switchLang(lang) {
-    document.querySelectorAll('.content > div').forEach(el => el.classList.remove('active'));
-    document.querySelector('.content .' + lang).classList.add('active');
-
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('selected'));
-
-    document.getElementById('btn-' + lang).classList.add('selected');
-
-    document.documentElement.lang = (lang === 'es' ? 'es' : 'ca');
-}
-
-window.onload = function() {
-    switchLang('ca');
-};
 <div class="container">
     <div class="content">
         <div class="es active">
