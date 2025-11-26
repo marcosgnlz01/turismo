@@ -47,6 +47,21 @@
             display: block;
         }
     </style>
+    function switchLang(lang) {
+    document.querySelectorAll('.content > div').forEach(el => el.classList.remove('active'));
+    document.querySelector('.content .' + lang).classList.add('active');
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('selected'));
+
+    document.getElementById('btn-' + lang).classList.add('selected');
+
+    document.documentElement.lang = (lang === 'es' ? 'es' : 'ca');
+}
+
+window.onload = function() {
+    switchLang('ca');
+};
+
 </head>
 <body>
     <header>
@@ -66,7 +81,6 @@
     </div>
   </nav>
 </header>
-
 <style>
   header {
     position: fixed;
@@ -147,7 +161,6 @@
     }
   }
 </style>
-
 <div class="container">
     <div class="content">
         <div class="es active">
